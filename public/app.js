@@ -3,6 +3,10 @@
 //     console.log($(this).attr("data-id"))
 // })
 
+var viewNews = function() {
+    location.assign("/news")
+}
+
 $(document).on("click", "p", function() {
     console.log("clicked to make a comment")
 
