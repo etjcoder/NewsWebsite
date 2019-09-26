@@ -1,19 +1,25 @@
-<div id="wrapper">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <h3 class="text-white">Philadelphia Sports News</h3>
+    <button class="btn btn-outline-secondary" style="margin-left: auto" onclick="newArticleScrape()">Load Daily Articles</button>
+</nav>
+<div id="container-index">
     <h1>Philadelphia Sports News</h1>
-    <button onclick="newArticleScrape()">Load Daily Articles</button>
+    
     {{!-- <h2><i>If you can do this...the homework should be no problem.</i></h2> --}}
 
     {{!-- <div class="container"></div> --}}
     {{#each articles}}
-
-    <div class="card" style="width: 80%">
+    <br>
+    <br>
+    <div class="card" style="width: 80%; margin-left: auto; margin-right: auto">
         <h2>{{title}}</h2>
         <p>{{summary}}</p>
-        <a href={{link}}>Read More</a>
-        <a href="/comments/{{_id}}">View Comments</a>
-        <a href="/comments/{{_id}}">Make a Comment</a>
+        <a class="btn btn-outline-primary" href={{link}} style="width: 100px; margin-right: auto; ">Read More</a>
+        <a class="btn btn-outline-primary" href="/comments/{{_id}}" style="width: 133px; margin-right: auto;">View Comments</a>
+        <a class="btn btn-outline-primary" href="/comments/{{_id}}" style="width: 166px; margin-right: auto;">Make a Comment</a>
     </div>
-
+    <br>
+    <br>
     {{/each}}
 
     <div id="notes"></div>
