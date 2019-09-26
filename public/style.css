@@ -1,5 +1,7 @@
 body {
-  background-color: #F2F6D0
+  background: url("giphy.gif");
+  /* -webkit-background-size: cover; */
+  background-size: cover;
 }
 
 #wrapper {
