@@ -4,6 +4,10 @@ var viewNews = function() {
     location.assign("/news")
 }
 
+$(document).on("click", "#back-button", function() {
+    location.assign("/")
+})
+
 var newArticleScrape = function() {
     console.log("Getting new articles...")
     $.ajax({
