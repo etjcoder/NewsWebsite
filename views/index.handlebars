@@ -3,7 +3,7 @@
     <button onclick="newArticleScrape()">Load Daily Articles</button>
     {{!-- <h2><i>If you can do this...the homework should be no problem.</i></h2> --}}
 
-{{!-- <div class="container"></div> --}}
+    {{!-- <div class="container"></div> --}}
     {{#each articles}}
 
     <div class="card" style="width: 80%">
@@ -11,7 +11,7 @@
         <p>{{summary}}</p>
         <a href={{link}}>Read More</a>
         <a href="/comments/{{_id}}">View Comments</a>
-        <p class="make-comment" style="color: darkslategray" data-id='{{id}}'><u>Make a Comment</u></p>
+        <a href="/comments/{{_id}}">Make a Comment</a>
     </div>
 
     {{/each}}
