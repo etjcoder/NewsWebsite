@@ -11,17 +11,13 @@
     {{#each articles}}
     <div class="parralax-index">
     </div>
-    <br>
-    <br>
-    <div class="card" style="width: 80%; margin-left: auto; margin-right: auto">
+    <div class="card bg-dark" style="color: white; width: 80%; margin-left: auto; margin-right: auto">
         <h2>{{title}}</h2>
         <p>{{summary}}</p>
         <a class="btn btn-outline-primary" href={{link}} style="width: 100px; margin-right: auto; ">Read More</a>
         <a class="btn btn-outline-primary" href="/comments/{{_id}}" style="width: 133px; margin-right: auto;">View Comments</a>
         <a class="btn btn-outline-primary" href="/comments/{{_id}}" style="width: 166px; margin-right: auto;">Make a Comment</a>
     </div>
-    <br>
-    <br>
     {{/each}}
 
     <div id="notes"></div>
