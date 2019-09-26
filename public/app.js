@@ -1,7 +1,4 @@
 
-// $(".make-comment").on("click", function() {
-//     console.log($(this).attr("data-id"))
-// })
 
 var viewNews = function() {
     location.assign("/news")
@@ -23,11 +20,6 @@ $(document).on("click", "p", function() {
 
 })
 
-// document.getElementById("#comment-form").onsubmit = function(data) {
-//     console.log("submitted form")
-//     console.log(data)
-
-// }
 
 
 $(document).on("submit", "#comment-form", function(data){
@@ -60,8 +52,3 @@ $("#delete-comment").on("click", function(event) {
     event.preventDefault();
     console.log("click")
 })
-
-// document.getElementById("comment-form").onsubmit = function(){
-
-//     console.log("you submitted this form")
-// }

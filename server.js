@@ -1,11 +1,9 @@
 require("dotenv").config();
 var express = require("express");
-// var logger = require("morgan");
 var exphbs = require("express-handlebars");
 var db = require("./models");
 var app = express();
-var PORT = 3000;
-var router = express.Router();
+var PORT = process.env.PORT || 3000;
 
 // var bodyParser = require("body-parser");
 var path = require("path");
