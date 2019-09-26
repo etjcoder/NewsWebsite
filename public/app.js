@@ -4,6 +4,14 @@ var viewNews = function() {
     location.assign("/news")
 }
 
+var goToMain = function() {
+    location.assign("/")
+}
+
+var goToArchives = function() {
+    location.assign("/archives")
+}
+
 $(document).on("click", "#back-button", function() {
     location.assign("/")
 })

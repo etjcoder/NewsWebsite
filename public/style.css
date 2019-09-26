@@ -71,7 +71,7 @@ h2 {
 }
 
 .parralax-index {
-  background: url("/images/layer-5-foreground-transparent.png"), url("/images/layer-4-hills-transparent.png"), url("/images/layer-3-blackish-transparent.png"), url("/images/layer-2-darkgray-transparent.png"), url("/images/layer-1-gray-transparent.png") no-repeat center;
+  /* background: url("/images/layer-5-foreground-transparent.png"), url("/images/layer-4-hills-transparent.png"), url("/images/layer-3-blackish-transparent.png"), url("/images/layer-2-darkgray-transparent.png"), url("/images/layer-1-gray-transparent.png") no-repeat center; */
   background-size: cover;
   background-attachment: fixed;
   height: 200px;
