@@ -1,0 +1,19 @@
+<div id="wrapper">
+    <h1>Philadelphia Sports News</h1>
+    {{!-- <h2><i>If you can do this...the homework should be no problem.</i></h2> --}}
+    <div id="articles"></div>
+{{!-- <div class="container"></div> --}}
+    {{#each articles}}
+
+    <div class="card" style="width: 80%">
+        <h2>{{title}}</h2>
+        <p>{{summary}}</p>
+        <a href={{link}}>Read More</a>
+        <a href="/comments/{{_id}}">View Comments</a>
+        <p class="make-comment" style="color: darkslategray" data-id='{{id}}'><u>Make a Comment</u></p>
+    </div>
+
+    {{/each}}
+
+    <div id="notes"></div>
+</div>

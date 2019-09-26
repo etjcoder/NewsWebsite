@@ -1,0 +1,51 @@
+<div id="wrapper">
+    <h1>Comment Section</h1>
+    {{!-- <h2><i>If you can do this...the homework should be no problem.</i></h2> --}}
+    <div id="articles"></div>
+    {{!-- <div class="container"></div> --}}
+    {{#each articles}}
+
+    <div class="card" style="width: 80%">
+
+
+        <h2>{{title}}</h2>
+        <p>{{summary}}</p>
+        <a href={{link}}>Read More</a>
+        <a href="/comments/{{_id}}">View Comments</a>
+        <p class="make-comment" style="color: darkslategray" data-id='{{id}}'><u>Make a Comment</u></p>
+
+    </div>
+
+    <div id="comment-input-box">
+    <form action="/submit/{{_id}}" method="post">
+      <input type="text" name="username" placeholder="Your Name">
+      <input type="text" name="body" placeholder="Comment...">
+
+      <input type="submit">
+    </form>
+    </div>
+
+    {{/each}}
+
+    {{#each articles}}
+        <div class="card bg-success" width="60%">
+            <h5>Comment By: {{comment.username}}</h5>
+            <p>{{body}}</p>
+
+            <button id="delete-comment" value="{{comment._id}}">X</button>
+        </div>
+
+    {{/each}}
+
+
+    {{!-- <div id="comment-input-box">
+    <form action="/submit/{{}}" method="post">
+      <input type="text" name="username" placeholder="Your Name">
+      <input type="text" name="body" placeholder="Comment...">
+
+      <input type="submit">
+    </form>
+    </div> --}}
+
+    <div id="notes"></div>
+</div>
