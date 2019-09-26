@@ -18,6 +18,7 @@
 
     <div id="comment-input-box">
     <form action="/submit/{{_id}}" method="post">
+    {{!-- <form id="comment-form"> --}}
       <input type="text" name="username" placeholder="Your Name">
       <input type="text" name="body" placeholder="Comment...">
 
@@ -27,12 +28,12 @@
 
     {{/each}}
 
-    {{#each articles}}
+    {{#each comments}}
         <div class="card bg-success" width="60%">
-            <h5>Comment By: {{comment.username}}</h5>
+            <h5>Comment By: {{username}}</h5>
             <p>{{body}}</p>
 
-            <button id="delete-comment" value="{{comment._id}}">X</button>
+            <button id="delete-comment" value="{{_id}}">Delete Comment</button>
         </div>
 
     {{/each}}

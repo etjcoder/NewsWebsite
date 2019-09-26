@@ -88,7 +88,7 @@ app.get("/articles/:id", function (req, res) {
         })
 });
 
-
+//Make Comment
 app.post("/submit/:id", function(req, res) {
 
     var id = req.params.id;
@@ -97,13 +97,31 @@ app.post("/submit/:id", function(req, res) {
     .then(function(dbComment) {
 
         return db.Article.findByIdAndUpdate({_id: id}, { $push: { comment: dbComment._id } }, {new: true});
+    }).then(function(){
+        location.reload();
     })
-    .then(function(dbArticle) {
-        res.json(dbArticle)
+    // .then(function(dbArticle) {
+    //     // res.json(dbArticle)
+    //     // location.reload()
+    //     window.location.assign(`/comments/${req.params.id}`)
+    // })
+    .catch(function() {
+        location.reload();
     })
-    .catch(function(err) {
-        res.json(err);
-    })
+})
+
+//Delete Comment
+app.put("/comment/delete/:id", function(req, res) {
+
+    var id = req.params.id;
+
+    db.Comment.remove({_id: id})
+        .then(function(dbComment) {
+            res.json(dbComment)
+        })
+        .catch(function(err){
+            res.json(err);
+        })
 })
 
 /// HTML ROUTES ///
@@ -134,21 +152,28 @@ app.get("/news", function (req, res) {
 app.get("/comments/:id", function(req, res) {
 
     var articleArray = [];
+    var commentArray = [];
+
 
     var hbsObject = {
-        articles: articleArray
+        articles: articleArray,
+        comments: commentArray
     }
 
     db.Article.findById(req.params.id)
         .populate("comment")
         .then(function(data) {
-        //    console.log(data);
+           console.log(data);
             articleArray.push(data)
             
-
+            for ( i = 0; i < data.comment.length; i ++) {
+                commentArray.push(data.comment[i]);
+            }
+            // commentArray.push(data.comment)
             // db.Comment.find({})
-
-            console.log(hbsObject)
+            // console.log(hbsObject)
+            console.log(hbsObject.articles);
+            console.log(hbsObject.comments)
             res.render("comments", hbsObject)
         })
 })
