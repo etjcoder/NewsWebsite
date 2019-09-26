@@ -4,6 +4,19 @@ var viewNews = function() {
     location.assign("/news")
 }
 
+var newArticleScrape = function() {
+    console.log("Getting new articles...")
+    $.ajax({
+        method: "GET",
+        url: "/scrape"
+    })
+        .then(function(data){
+            console.log(data);
+            // location.reload();
+        })
+}
+
+
 $(document).on("click", "p", function() {
     console.log("clicked to make a comment")
 
@@ -31,7 +44,7 @@ $(document).on("submit", "#comment-form", function(data){
     console.log($(this).username)
 })
 
-$(document).on("click", "button", function(event){
+$(document).on("click", "#delete-comment", function(event){
     console.log("you've clicked the delete button")
     console.log($(this).val())
     thisId = $(this).val()
