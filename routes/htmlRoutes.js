@@ -19,7 +19,7 @@ module.exports = function (app) {
             var articles = data.slice(1).slice(-5)
             console.log(articles)
             for (i = 0; i < articles.length; i++) {
-                articleArray.push(articles[i]);
+                articleArray.unshift(articles[i]);
             }
 
             // console.log(hbsObject)
@@ -27,7 +27,7 @@ module.exports = function (app) {
                 var politics = data.slice(1).slice(-5)
                 console.log(politics)
                 for (j = 0; j < politics.length; j++) {
-                    politicsArray.push(politics[j])
+                    politicsArray.unshift(politics[j])
                 }
             })
             setTimeout(function () {
@@ -51,7 +51,7 @@ module.exports = function (app) {
             // var articles = data.slice(1).slice(-5)
             // console.log(articles)
             for (i = 0; i < data.length; i++) {
-                articleArray.push(data[i]);
+                articleArray.unshift(data[i]);
             }
 
             // console.log(hbsObject)
@@ -59,7 +59,7 @@ module.exports = function (app) {
                 var politics = data.slice(1).slice(-5)
                 console.log(politics)
                 for (j = 0; j < politics.length; j++) {
-                    politicsArray.push(politics[j])
+                    politicsArray.unshift(politics[j])
                 }
             })
 
