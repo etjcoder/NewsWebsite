@@ -1,0 +1,72 @@
+<div id="wrapper">
+    <h1>Comment Section</h1>
+    <button id="back-button" class="btn btn-light">Back to Articles</button>
+    {{!-- <h2><i>If you can do this...the homework should be no problem.</i></h2> --}}
+    {{!-- <div class="container"></div> --}}
+    {{#each articles}}
+
+    <div class="card col-6 mb-6 bg-dark" style="color: white;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="{{image}}" class="card-img" href="{{link}}" alt="...">
+                <a class="btn btn-outline-primary" href={{link}} style="width: 100px; margin-right: auto; ">Read
+                    More</a>
+                <a class="btn btn-outline-primary" href="/comments/politics/{{_id}}"
+                    style="width: 133px; margin-right: auto;">View Comments</a>
+                <a class="btn btn-outline-primary" href="/comments/politics/{{_id}}"
+                    style="width: 166px; margin-right: auto;">Make a Comment</a>
+
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{title}}</h5>
+                    <p class="card-text">{{summary}}</p>
+                    {{!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> --}}
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    {{/each}}
+    <br>
+
+    {{#each comments}}
+
+    <div class="card" style="background: lightgray; color: darkblue; padding: 10px; width: 80%">
+        <h5>Comment By: {{username}}</h5>
+        <p style="font-size: 20px">{{body}}</p>
+
+        <button id="delete-comment" class="btn btn-outline-danger" value="{{_id}}"
+            style="width: 150px; margin-left:auto">Delete Comment</button>
+    </div>
+
+    {{/each}}
+
+    {{#each articles}}
+    <div class="card bg-dark" style="color: whitesmoke; width: 80&">
+        <div id="comment-input-box">
+            <form action="/submit/politics/{{_id}}" method="post">
+                {{!-- <form id="comment-form"> --}}
+                <input type="text" name="username" placeholder="Your Name">
+                <textarea type="text" name="body" placeholder="Comment..."></textarea>
+
+                <input type="submit">
+            </form>
+        </div>
+    </div>
+    {{/each}}
+
+    {{!-- <div id="comment-input-box">
+    <form action="/submit/{{}}" method="post">
+      <input type="text" name="username" placeholder="Your Name">
+      <input type="text" name="body" placeholder="Comment...">
+
+      <input type="submit">
+    </form>
+    </div> --}}
+
+
+
+    <div id="notes"></div>
+</div>

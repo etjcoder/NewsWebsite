@@ -16,17 +16,28 @@ $(document).on("click", "#back-button", function() {
     location.assign("/")
 })
 
-var newArticleScrape = function() {
+var newSportsArticlesScrape = function() {
     console.log("Getting new articles...")
     $.ajax({
         method: "GET",
-        url: "/scrape"
+        url: "/scrape/sports/"
     })
         .then(function(data){
             console.log(data);
             // location.reload();
         })
-}
+};
+
+var newPoliticsArticlesScrape = function() {
+    console.log("Getting new articles....")
+    $.ajax({
+        method: "GET",
+        url: "/scrape/politics/"
+    })
+        .then(function(data) {
+            console.log(data);
+        })
+};
 
 
 $(document).on("click", "p", function() {

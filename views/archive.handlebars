@@ -1,25 +1,90 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <h3 class="text-white">Philadelphia Sports News</h3>
-    <button class="btn btn-outline-secondary" style="margin-left: 25px; float: right" onclick="goToMain()">Main Page</button>
-    <button class="btn btn-outline-secondary" style="float: right" onclick="newArticleScrape()">Load Daily Articles</button>
+    <button class="btn btn-outline-secondary" style="margin-left: 25px; float: right" onclick="goToMain()">Main
+        Page</button>
+    <button class="btn btn-outline-secondary" style="float: right" onclick="newSportsArticleScrape()">Load Daily Sports
+        Articles</button>
+    <button class="btn btn-outline-secondary" style="float: right" onclick="newPoliticsArticleScrape()">Load Daily
+        Politics
+        Articles</button>
 </nav>
+
 <div id="container-index">
-    <h1>Archived Phila. Sports News</h1>
-    
+
+
+    <h1>United States Politics News</h1>
+    <div class="parralax-index">
+    </div>
+    <div class="row">
+        {{#each politics}}
+
+        <div class="card col-6 mb-6 bg-dark" style="color: white;">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="{{image}}" class="card-img" href="{{link}}" alt="...">
+                    <a class="btn btn-outline-primary" href={{link}} style="width: 100px; margin-right: auto; ">Read
+                        More</a>
+                    <a class="btn btn-outline-primary" href="/comments/politics/{{_id}}"
+                        style="width: 133px; margin-right: auto;">View Comments</a>
+                    <a class="btn btn-outline-primary" href="/comments/politics/{{_id}}"
+                        style="width: 166px; margin-right: auto;">Make a Comment</a>
+
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{title}}</h5>
+                        <p class="card-text">{{summary}}</p>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        {{/each}}
+    </div>
+
+    <div class="parralax-index">
+    </div>
+    <h1>Philadelphia Sports News</h1>
+
     {{!-- <h2><i>If you can do this...the homework should be no problem.</i></h2> --}}
 
     {{!-- <div class="container"></div> --}}
-    {{#each articles}}
     <div class="parralax-index">
     </div>
-    <div class="card bg-dark" style="color: white; width: 80%; margin-left: auto; margin-right: auto">
-        <h2>{{title}}</h2>
-        <p>{{summary}}</p>
-        <a class="btn btn-outline-primary" href={{link}} style="width: 100px; margin-right: auto; ">Read More</a>
-        <a class="btn btn-outline-primary" href="/comments/{{_id}}" style="width: 133px; margin-right: auto;">View Comments</a>
-        <a class="btn btn-outline-primary" href="/comments/{{_id}}" style="width: 166px; margin-right: auto;">Make a Comment</a>
+    {{!-- <div class="container"> --}}
+    <div class="row">
+        {{#each articles}}
+        <div class="col-6">
+            <div class="card bg-dark" style="color: white; margin-left: auto; margin-right: auto">
+                <h2>{{title}}</h2>
+                <p style="font-size: 16px">{{summary}}</p>
+                <a class="btn btn-outline-primary" href={{link}} style="width: 100px; margin-right: auto; ">Read
+                    More</a>
+                <a class="btn btn-outline-primary" href="/comments/{{_id}}"
+                    style="width: 133px; margin-right: auto;">View Comments</a>
+                <a class="btn btn-outline-primary" href="/comments/{{_id}}"
+                    style="width: 166px; margin-right: auto;">Make a Comment</a>
+            </div>
+        </div>
+        <br>
+        {{/each}}
     </div>
-    {{/each}}
+    <div class="parralax-index">
+    </div>
 
-    <div id="notes"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div id="notes"></div>
 </div>

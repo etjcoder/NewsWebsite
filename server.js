@@ -21,9 +21,9 @@ app.use(express.json());
 app.use(express.static("public"));
 
 app.engine(
-    "handlebars", 
-    exphbs({ 
-        defaultLayout: "main" 
+    "handlebars",
+    exphbs({
+        defaultLayout: "main"
     })
 );
 app.set("view engine", "handlebars");
@@ -38,7 +38,7 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsWebsite";
 mongoose.connect(MONGODB_URI);
 
 
-app.get("/scrape", function (req, res) {
+app.get("/scrape/sports/", function (req, res) {
 
     axios.get("https://phillysportsnetwork.com/").then(function (response) {
 
@@ -71,6 +71,40 @@ app.get("/scrape", function (req, res) {
     })
 })
 
+app.get("/scrape/politics/", function (req, res) {
+
+    axios.get("https://www.npr.org/sections/politics/").then(function (response) {
+
+        var $ = cheerio.load(response.data);
+
+
+
+        $("article.has-image").each(function (i, element) {
+
+            // console.log(element);
+            var results = {};
+
+            results.title = $(this).find("h2").text();
+            results.link = $(this).find("a").attr("href");
+            results.image = $(this).find("img").attr("src");
+            results.summary = $(this).find("p").text();
+
+            // result.summary = $(this).children("div").text();
+
+            console.log(results);
+
+                db.Politic.create(results).then(function (dbPolitics) {
+
+                    console.log(dbPolitics);
+                })
+                    .catch(function (err) {
+                        console.log(err);
+                    });
+            });
+
+        res.send("Scrape Complete");
+    })
+})
 
 
 /// HTML ROUTES ///

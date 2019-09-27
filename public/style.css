@@ -79,12 +79,12 @@ h2 {
 }
 
 .row {
-  height: 500px;
-  padding: 100px 25px 25px 25px;
+  /* height: 500px; */
+  /* padding: 100px 25px 25px 25px; */
   /* background-image: linear-gradient(to bottom right, purple, gray); */
-  color: black;
-  font-size: 32px;
-  background: whitesmoke;
+  /* color: black; */
+  /* font-size: 32px; */
+  /* background: whitesmoke; */
   font-family: 'FreeMono', monospace
 }
 
